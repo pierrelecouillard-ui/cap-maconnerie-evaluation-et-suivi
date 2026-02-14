@@ -1,0 +1,1199 @@
+/* =========================
+   Thème (couleurs pilotables)
+   Tout ce qui est en var(--...) peut être ajusté ici.
+   ========================= */
+:root{
+  /* Base (utilisé notamment dans la fenêtre d'impression) */
+  --app-bg: #ffffff;
+  --app-muted: #f3f4f6;
+  --app-border: #e5e7eb;
+  --app-border-strong: #d1d5db;
+  --app-text: #111827;
+  --app-danger: #b91c1c;
+
+  /* Palette sombre (utilisée via Tailwind arbitrary values: bg-[var(--...)] ) */
+  --night-base: #0f1b2d;
+  --night-surface: #182433;
+  --night-panel: #1f2d42;
+  --night-panel-alt: #22344d;
+  --night-topbar: #243554;
+  --night-cell-mixed: #22324a;
+  --night-hover: #3d2707;
+  --night-border: var(--night-surface);
+  --night-border-strong: #1b467a;
+  --night-deep: #0b1220;
+  --night-ring-offset: var(--night-deep);
+
+  /* Pastilles ENGAGEMENT */
+  --eng-text: #111827;
+  --eng-absence: #ef4444;
+  --eng-absence-soft: rgba(239, 68, 68, 0.25);
+  --eng-attente: #facc15;
+  --eng-attente-soft: rgba(250, 204, 21, 0.25);
+  --eng-normal: #38bdf8;
+  --eng-normal-soft: rgba(56, 189, 248, 0.25);
+  --eng-engage: #22c55e;
+  --eng-engage-soft: rgba(34, 197, 94, 0.25);
+  --eng-volontaire: #059669;
+  --eng-volontaire-soft: rgba(5, 150, 105, 0.25);
+
+  /* Couleurs des graphiques (Recharts) */
+  --chart-reference: #6d28d9;
+  --chart-student: #16a34a;
+  --chart-class: #6b7280;
+
+  /* -------------------------------------------------
+     Extensions : impression, exports, graphiques, etc.
+     (toutes les couleurs ci-dessous sont pilotables)
+     ------------------------------------------------- */
+
+  /* Print / exports (HTML généré, fenêtres d'impression, etc.) */
+  --print-bg: var(--app-muted);
+  --print-surface: var(--app-bg);
+  --print-border: var(--app-border);
+  --print-border-strong: var(--app-border-strong);
+  --print-text: var(--app-text);
+  --print-muted-text: #6b7280;
+  --print-muted-text-strong: #4b5563;
+  --print-muted-2: #444;
+  --print-subtle: #9ca3af;
+  --print-subtle-strong: #374151;
+  --print-empty: #888;
+  --print-row-alt: #f9fafb;
+  --print-table-head-bg: #f5f5f5;
+
+  --print-badge-bg: #e0f2fe;
+  --print-badge-text: #0369a1;
+  --print-badge-dot: #0ea5e9;
+
+  --print-header-bg: var(--print-surface);
+  --print-header-title: var(--print-text);
+  --print-header-meta: var(--print-muted-text);
+
+  --print-group-default: #9ca3af;
+  --print-group-g1: #38bdf8;
+  --print-group-g2: #fbbf24;
+  --print-group-g3: #a855f7;
+
+  /* Barème / niveaux (NR..4) */
+  --print-score-0-bg: #111827;
+  --print-score-0-border: #111827;
+  --print-score-0-text: #f9fafb;
+
+  --print-score-1-bg: #ef4444;
+  --print-score-1-border: #ef4444;
+  --print-score-1-text: #f9fafb;
+
+  --print-score-2-bg: #f97316;
+  --print-score-2-border: #f97316;
+  --print-score-2-text: #f9fafb;
+
+  --print-score-3-bg: #fbbf24;
+  --print-score-3-border: #fbbf24;
+  --print-score-3-text: #111827;
+
+  --print-score-4-bg: #22c55e;
+  --print-score-4-border: #22c55e;
+  --print-score-4-text: #f9fafb;
+
+  --print-score-default-bg: #e5e7eb;
+  --print-score-default-border: #d1d5db;
+  --print-score-default-text: #111827;
+
+  --print-score-inactive-bg: #f9fafb;
+  --print-score-inactive-text: #374151;
+
+  /* Engagement (échelle / pastilles en impression) */
+  --print-eng-inactive-bg: #f9fafb;
+
+  --print-eng-absence-bg: var(--eng-absence);
+  --print-eng-absence-text: #f9fafb;
+  --print-eng-absence-border: var(--eng-absence);
+  --print-eng-absence-inactive-text: #7f1d1d;
+
+  --print-eng-attente-bg: var(--eng-attente);
+  --print-eng-attente-text: #111827;
+  --print-eng-attente-border: var(--eng-attente);
+  --print-eng-attente-inactive-text: #a16207;
+
+  --print-eng-normal-bg: var(--eng-normal);
+  --print-eng-normal-text: #111827;
+  --print-eng-normal-border: var(--eng-normal);
+  --print-eng-normal-inactive-text: #0369a1;
+
+  --print-eng-engage-bg: var(--eng-engage);
+  --print-eng-engage-text: #f9fafb;
+  --print-eng-engage-border: var(--eng-engage);
+  --print-eng-engage-inactive-text: #15803d;
+
+  --print-eng-volontaire-bg: var(--eng-volontaire);
+  --print-eng-volontaire-text: #f9fafb;
+  --print-eng-volontaire-border: var(--eng-volontaire);
+  --print-eng-volontaire-inactive-text: #047857;
+
+  /* Code couleur (pastilles / légendes) */
+  --code-red-bg: #ef4444;
+  --code-red-text: #f9fafb;
+  --code-orange-bg: #f97316;
+  --code-orange-text: #f9fafb;
+  --code-yellow-bg: #facc15;
+  --code-yellow-text: #111827;
+  --code-green-bg: #22c55e;
+  --code-green-text: #f9fafb;
+
+  --code-red-fg: #dc2626;
+  --code-orange-fg: #ea580c;
+  --code-yellow-fg: #eab308;
+  --code-green-fg: #16a34a;
+
+  /* Mini evolution chart (SVG maison) */
+  --mini-zone-decouverte: #FDE7D8;
+  --mini-zone-apprentissage: #E1F2FA;
+  --mini-zone-acquisition: #E7F6EC;
+  --mini-zone-opacity: 1;
+
+  --mini-grid-stroke: #7A7A7A;
+  --mini-grid-opacity: 0.6;
+  --mini-tick-fill: #444;
+  --mini-xlabel-fill: #333;
+
+  --mini-cap-stroke: #8B4E1D;
+  --mini-sep-stroke: #444;
+  --mini-bar-fill: #7F1D1D;
+
+  /* Bilan (Recharts) */
+  --bilan-zone-decouverte: #FDE7D8;
+  --bilan-zone-apprentissage: #E1F2FA;
+  --bilan-zone-acquisition: #E7F6EC;
+
+  --bilan-midline-stroke: #111827;
+  --bilan-grid-stroke: rgba(17,24,39,0.16);
+  --bilan-axis-text: #111827;
+  --bilan-axis-line: rgba(17,24,39,0.25);
+
+  --bilan-tooltip-bg: #ffffff;
+  --bilan-tooltip-border: rgba(17,24,39,0.15);
+  --bilan-tooltip-text: #111827;
+  --bilan-cursor-fill: rgba(17,24,39,0.06);
+
+  /* Aperçu "exigences" (srcDoc) */
+  --eval-preview-outer-bg: #f3f4f6;
+  --eval-preview-page-bg: #ffffff;
+  --eval-preview-text: #111827;
+  --eval-preview-muted: #4b5563;
+  --eval-preview-border: #d1d5db;
+  --eval-preview-thead-bg: #f3f4f6;
+  --eval-preview-thead-text: #111827;
+  --eval-preview-empty: #888;
+  --eval-preview-muted2: #666;
+
+  /* Livret périodique (PRINT_BASE_CSS) */
+  --livret-paper: #fff;
+  --livret-ink: #000;
+  --livret-frame-border: #d0d0d0;
+
+  --livret-band-top: #E7F6EC;
+  --livret-band-mid: #E1F2FA;
+  --livret-band-bot: #FDE7D8;
+
+  --livret-midline: rgba(0,0,0,.35);
+
+  --livret-green: #16a34a;
+  --livret-gray: #6b7280;
+
+  --livret-traffic-bg: #f3f3f3;
+  --livret-traffic-dot: #bdbdbd;
+  --livret-traffic-green: #00ff00;
+  --livret-traffic-yellow: #ffff00;
+  --livret-traffic-red: #ff0000;
+
+  --livret-graytitle-bg: #e6e6e6;
+  --livret-status-na: #ff0000;
+  --livret-status-ea: #ffff00;
+  --livret-status-a: #00ff00;
+  --livret-status-ne: #d9d9d9;
+
+  --livret-motiv-good: #16a34a;
+  --livret-motiv-mid: #f59e0b;
+  --livret-motiv-bad: #ef4444;
+
+  /* Topbar : bande arc-en-ciel */
+  --rainbow-1: #ef4444;
+  --rainbow-2: #f97316;
+  --rainbow-3: #f59e0b;
+  --rainbow-4: #84cc16;
+  --rainbow-5: #22d3ee;
+  --rainbow-6: #3b82f6;
+  --rainbow-7: #6366f1;
+  --rainbow-8: #8b5cf6;
+  --rainbow-9: #d946ef;
+  --topbar-rainbow: linear-gradient(90deg,
+    var(--rainbow-1),
+    var(--rainbow-2),
+    var(--rainbow-3),
+    var(--rainbow-4),
+    var(--rainbow-5),
+    var(--rainbow-6),
+    var(--rainbow-7),
+    var(--rainbow-8),
+    var(--rainbow-9)
+  );
+
+}
+
+/* Fenêtre dédiée à l'impression (StandalonePrintWindow) */
+.print-window-root{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--app-bg);
+}
+.print-window-toolbar{
+  height: 44px;
+  border-bottom: 1px solid var(--app-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  background: var(--app-bg);
+}
+.print-window-title{
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--app-text);
+}
+.print-window-actions{
+  display: flex;
+  gap: 8px;
+}
+.print-window-btn{
+  height: 30px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1px solid var(--app-border-strong);
+  background: var(--app-bg);
+  font-size: 12px;
+}
+.print-window-body{
+  flex: 1;
+  min-height: 0;
+  background: var(--app-muted);
+  padding: 12px;
+}
+.print-window-error{
+  color: var(--app-danger);
+  font-size: 13px;
+}
+.print-window-iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: var(--app-bg);
+}
+
+
+
+/* =========================
+   Vue nuit — classes utilitaires (centralise les équivalents des `dark:*` utilisés dans le JSX)
+   Usage: ajouter les classes ci-dessous dans le JSX, sans `dark:` (le CSS gère les overrides).
+   Portée: uniquement sous .night-root (pour éviter d'impacter d'autres pages).
+   ========================= */
+
+.night-root.app-page{
+  background: #f9fafb; /* neutral-50 */
+  color: #111827;      /* neutral-900 */
+}
+.dark .night-root.app-page{
+  background: var(--night-panel);
+  color: #ffffff;
+}
+
+.night-root .app-surface{
+  background: #ffffff;
+  color: #111827;
+}
+.dark .night-root .app-surface{
+  background: var(--night-panel);
+  color: #d4d4d8; /* neutral-300-ish */
+}
+
+.night-root .app-border{
+  border-color: #e5e7eb; /* neutral-200 */
+}
+.dark .night-root .app-border{
+  border-color: rgba(56, 189, 248, 0.35); /* sky-400/35 */
+}
+
+.night-root .app-muted-text{
+  color: #4b5563; /* neutral-600 */
+}
+.dark .night-root .app-muted-text{
+  color: #d4d4d8; /* neutral-300-ish */
+}
+
+.night-root .app-input{
+  background: #ffffff;
+  color: #111827;
+  border-color: #d1d5db; /* neutral-300 */
+}
+.dark .night-root .app-input{
+  background: var(--night-surface);
+  color: #e5e7eb; /* neutral-200 */
+  border-color: rgba(56, 189, 248, 0.35); /* sky-400/35 */
+}
+
+
+/* Vue nuit — palette demandée */
+.dark .night-root{
+  /* Bordures UI (cartes, blocs, etc.) */
+  --night-border: #182433;
+
+  /* Bordures TABLEAUX (bleu clair) -> ajuste l’opacité si besoin */
+  --night-table-border: rgba(147, 197, 253, 0.55); /* bleu clair (blue-300) */
+}
+
+/* Par défaut, on garde les bordures UI en sombre */
+.dark .night-root [class*="border-neutral-"]{
+  border-color: var(--night-border) !important;
+}
+
+/* MAIS pour les tableaux : lignes en bleu clair */
+.dark .night-root table,
+.dark .night-root table th,
+.dark .night-root table td{
+  border-color: var(--night-table-border) !important;
+}
+
+/* Et pour les bordures "neutral" appliquées aux cellules */
+.dark .night-root table [class*="border-neutral-"],
+.dark .night-root table [class*="border-l-neutral-"],
+.dark .night-root table [class*="border-r-neutral-"],
+.dark .night-root table [class*="border-t-neutral-"],
+.dark .night-root table [class*="border-b-neutral-"]{
+  border-color: var(--night-table-border) !important;
+}
+
+/* Fond des tableaux */
+.dark .night-root table{
+  background: #1f2d42 !important;
+  color: #fff !important;
+}
+
+/* CCF : traits noirs (lignes du tableau) */
+.ccf-table,
+.ccf-table th,
+.ccf-table td{
+  border-color: #000 !important;
+}
+
+/* Fallback : conteneurs de tableaux (évite les “cartes” blanches autour des tables) */
+.dark .night-root :is(div,section,article)[class*="overflow-x-auto"],
+.dark .night-root :is(div,section,article)[class*="overflow-auto"],
+.dark .night-root :is(div,section,article)[class*="overflow-y-auto"] {
+  color: #fff !important;
+}
+.dark .night-root :is(div,section,article)[class*="shadow"][class*="bg-"]:not(.keep-light) {
+  background: #1f2d42 !important;
+  color: #fff !important;
+}
+
+.dark .keep-light {
+  background: rgba(255, 255, 255, 0.78) !important;
+  color: #111 !important;
+}
+
+/* Wrappers qui contiennent un tableau (si :has supporté) */
+.dark .night-root :is(div,section,article):has(table) {
+  background: #1f2d42 !important;
+  color: #fff !important;
+}
+
+/* Neutralise les backgrounds “clairs” dans les cellules/entêtes (sans toucher aux couleurs de notes) */
+.dark .night-root table .bg-white,
+.dark .night-root table .bg-neutral-50,
+.dark .night-root table .bg-neutral-100,
+.dark .night-root table .bg-neutral-200,
+.dark .night-root table .bg-neutral-50\/60,
+.dark .night-root table .bg-white\/70,
+.dark .night-root table .bg-white\/80,
+.dark .night-root table .bg-white\/95,
+.dark .night-root table [class*="bg-slate-"],
+.dark .night-root table [class*="bg-gray-"],
+.dark .night-root table [class*="bg-zinc-"],
+.dark .night-root table [class*="bg-stone-"],
+.dark .night-root table .bg-muted,
+.dark .night-root table .bg-background,
+.dark .night-root table .bg-card,
+.dark .night-root table .bg-secondary,
+.dark .night-root table .bg-accent {
+  background: #182433 !important;
+}
+
+/* Lignes alternées (classes Tailwind avec :) */
+.dark .night-root table .odd\:bg-white:nth-child(odd),
+.dark .night-root table .odd\:bg-neutral-50:nth-child(odd),
+.dark .night-root table .even\:bg-neutral-50:nth-child(even),
+.dark .night-root table .even\:bg-neutral-50\/60:nth-child(even) {
+  background: #1f2d42 !important;
+}
+
+/* Texte “neutre” → blanc dans les tableaux */
+.dark .night-root table [class*="text-neutral-"],
+.dark .night-root table [class*="text-slate-"],
+.dark .night-root table [class*="text-gray-"],
+.dark .night-root table [class*="text-zinc-"] {
+  color: #fff !important;
+}
+
+/* Pastilles */
+.dark .night-root :is(span,button,div,a)[class*="rounded-full"][class*="border-"] {
+  border-color: #182433 !important;
+}
+.dark .night-root :is(span,button,div,a)[class*="rounded-full"][class*="ring-"] {
+  --tw-ring-color: #182433 !important;
+}
+
+/* Impression — Bilan périodique : conserver l'affichage écran */
+@page { size: A4 landscape; margin: 10mm 10mm; }
+
+@media print {
+  /* Compactage spécifique au livret (page 2) */
+  .bilan-livret .lp-compBlock { margin-top: 6px !important; }
+
+  .bilan-livret .lp-compHead {
+    font-size: 16px !important;
+    line-height: 1.25 !important;
+    padding: 1px 0 !important;
+  }
+
+  .bilan-livret .lp-compItem {
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    padding: 1px 0 !important;
+  }
+
+  .bilan-livret .lp-legendLine {
+    margin: 4px 0 4px 0 !important;
+    font-size: 9px !important;
+  }
+
+  .bilan-livret .lp-status {
+    width: 14px !important;
+    height: 14px !important;
+    font-size: 16px !important;
+  }
+}
+
+/* --- Topbar responsive (réduction progressive dès 1490px ; labels courts < 640px ; icônes seules < 480px) --- */
+.topbar-row{
+  display:flex;
+  flex-wrap:nowrap;
+  align-items:center;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+
+  /* 1490 -> 640 */
+  --tb-fs: clamp(10px, calc(8.494px + 0.2353vw), 12px);
+  --tb-h:  clamp(30px, calc(26.988px + 0.4706vw), 34px);
+  --tb-px: clamp(9px,  calc(6.741px + 0.3529vw), 12px);
+  --tb-gap: clamp(6px, calc(4.494px + 0.2353vw), 8px);
+  --tb-icon: clamp(16px, calc(14.494px + 0.2353vw), 18px);
+
+  gap:var(--tb-gap);
+}
+.topbar-btn{
+  height:var(--tb-h) !important;
+  padding-left:var(--tb-px) !important;
+  padding-right:var(--tb-px) !important;
+  gap:var(--tb-gap) !important;
+  font-size:var(--tb-fs) !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+}
+.topbar-icon{ width:var(--tb-icon) !important; height:var(--tb-icon) !important; }
+.topbar-emoji{ font-size:var(--tb-icon) !important; line-height:1 !important; }
+.topbar-row::-webkit-scrollbar{ display:none; }
+.topbar-subgroup{ display:flex; flex-wrap:nowrap; align-items:center; gap:var(--tb-gap); }
+
+@media (max-width:1024px){
+  /* ✅ Sur écrans plus petits : on autorise le retour à la ligne (sélecteurs visibles) */
+  .topbar-row{
+    flex-wrap:wrap;
+    overflow-x:visible;
+  }
+  .topbar-subgroup{
+    flex-wrap:wrap;
+  }
+}
+
+@media (max-width:640px){
+  .topbar-row{
+    --tb-fs: clamp(9px,  calc(6px + 0.625vw), 10px);
+    --tb-h:  clamp(28px, calc(22px + 1.25vw), 30px);
+    --tb-px: clamp(6px,  calc(-3px + 1.875vw), 9px);
+    --tb-gap: clamp(4px, calc(-2px + 1.25vw), 6px);
+    --tb-icon: clamp(14px, calc(8px + 1.25vw), 16px);
+  }
+}
+@media (max-width:480px){
+  .topbar-label{ display:none !important; }
+  .topbar-btn{ padding-left:8px !important; padding-right:8px !important; }
+}
+
+/* --- Stepbar (TÂCHES / COMPÉTENCES / EXIGENCES / ÉVALUATION) --- */
+.stepbar-list{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  border-radius: 12px;
+
+  /* 1490 -> 640 */
+  --sb-fs: clamp(10px, calc(8.494px + 0.2353vw), 12px);
+  --sb-h:  clamp(28px, calc(25.741px + 0.3529vw), 32px);
+  --sb-px: clamp(8px,  calc(5.741px + 0.3529vw), 11px);
+  --sb-gap: clamp(6px, calc(4.494px + 0.2353vw), 8px);
+  --sb-icon: clamp(14px, calc(12.494px + 0.2353vw), 16px);
+
+  gap:var(--sb-gap);
+}
+.stepbar-trigger{
+  height:var(--sb-h) !important;
+  padding-left:var(--sb-px) !important;
+  padding-right:var(--sb-px) !important;
+  gap:var(--sb-gap) !important;
+  font-size:var(--sb-fs) !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+}
+.stepbar-icon{
+  font-size:var(--sb-icon) !important;
+  line-height:1 !important;
+}
+
+@media (max-width:640px){
+  .stepbar-list{
+    --sb-fs: clamp(9px,  calc(6px + 0.625vw), 10px);
+    --sb-h:  clamp(26px, calc(22px + 0.9vw), 28px);
+    --sb-px: clamp(6px,  calc(-1px + 1.3vw), 8px);
+    --sb-gap: clamp(4px, calc(-2px + 1.25vw), 6px);
+    --sb-icon: clamp(12px, calc(8px + 0.9vw), 14px);
+  }
+}
+@media (max-width:480px){
+  .stepbar-label{ display:none !important; }
+  .stepbar-trigger{ padding-left:8px !important; padding-right:8px !important; }
+}
+
+/* --- Suivi mode tabs (Devoirs / Synthèse / Évolutions / Bilan) --- */
+.suivi-tabs{
+  display:inline-flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+
+  /* Habillage (ex-Tailwind) */
+  border-radius:9999px;
+  border:1px solid rgb(229 229 229); /* neutral-200 */
+  background: rgb(250 250 250);       /* neutral-50 */
+  padding:4px;                        /* p-1 */
+
+  /* 1490 -> 640 */
+  --st-fs: clamp(10px, calc(8.494px + 0.2353vw), 12px);
+  --st-px: clamp(8px,  calc(5.741px + 0.3529vw), 11px);
+  --st-py: clamp(4px,  calc(3.247px + 0.1176vw), 5px);
+  --st-gap: clamp(4px, calc(2.494px + 0.2353vw), 6px);
+  --st-icon: clamp(14px, calc(12.494px + 0.2353vw), 16px);
+
+  gap:var(--st-gap);
+  font-size:var(--st-fs);
+}
+
+/* dark:border-sky-400/35 + dark:bg-[var(--night-surface)] */
+.dark .suivi-tabs{
+  border-color: rgb(56 189 248 / .35); /* sky-400 / 35% */
+  background: var(--night-surface);
+}
+
+/* Variante : sous-onglets sur une seule ligne (scroll horizontal si nécessaire) */
+.suivi-tabs-nowrap{
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  min-width:max-content; /* min-w-max */
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none; /* Firefox */
+}
+.suivi-tabs-nowrap::-webkit-scrollbar{
+  display:none;
+}
+
+/* TabsTrigger (suivi) — centralisation des styles (ex-Tailwind) */
+.suivi-btn{
+  display:inline-flex;
+  align-items:center;
+  border-radius:9999px;
+  transition: background-color .2s ease, color .2s ease;
+
+  background: transparent !important;
+  color: rgb(64 64 64) !important; /* neutral-700 */
+
+  /* dimensions/typo pilotées par les variables ci-dessus */
+  padding:var(--st-py) var(--st-px) !important;
+  gap:var(--st-gap) !important;
+  font-size:var(--st-fs) !important;
+  line-height:1.1 !important;
+  white-space:nowrap !important;
+  width:auto !important;
+  flex:none !important;
+  flex-shrink:0;
+}
+
+/* dark:text-neutral-300 */
+.dark .suivi-btn{
+  color: rgb(212 212 212) !important; /* neutral-300 */
+}
+
+/* hover: bg-amber-100/70 + dark hover night var */
+.suivi-btn:hover{
+  background-color: rgb(254 243 199 / .7) !important; /* amber-100 / 70% */
+}
+.dark .suivi-btn:hover{
+  background: var(--night-hover) !important;
+}
+
+/* data-[state=active]: bg-neutral-900 + text-white */
+.suivi-btn[data-state="active"]{
+  background-color: rgb(23 23 23) !important; /* neutral-900 */
+  color:#fff !important;
+}
+
+/* Modifiers (remplacent opacity-50/pointer-events-none Tailwind) */
+.suivi-btn--disabled{
+  opacity:.5 !important;
+  pointer-events:none !important;
+}
+.suivi-btn--muted{
+  opacity:.5 !important;
+}
+
+.suivi-icon{
+  font-size:var(--st-icon) !important;
+  line-height:1 !important;
+}
+
+@media (max-width:640px){
+  .suivi-tabs{
+    --st-fs: clamp(9px,  calc(6px + 0.625vw), 10px);
+    --st-px: clamp(6px,  calc(-1px + 1.3vw), 8px);
+    --st-py: clamp(3px,  calc(1px + 0.6vw), 4px);
+    --st-gap: clamp(3px, calc(-2px + 1.25vw), 5px);
+    --st-icon: clamp(12px, calc(8px + 0.9vw), 14px);
+  }
+}
+@media (max-width:480px){
+  .suivi-label{ display:none !important; }
+  .suivi-btn{ padding-left:8px !important; padding-right:8px !important; }
+}
+
+
+/* Topbar rainbow (ancien bg-[linear-gradient(...)] -> class CSS) */
+.topbar-rainbow{
+  background: var(--topbar-rainbow);
+}
+
+/* Variables spécifiques au thème sombre */
+.dark{
+  /* Mini evolution chart */
+  --mini-zone-decouverte: #3b2315;
+  --mini-zone-apprentissage: #102a3d;
+  --mini-zone-acquisition: #123221;
+  --mini-zone-opacity: 0.55;
+
+  --mini-grid-stroke: rgba(148,163,184,0.28);
+  --mini-grid-opacity: 0.55;
+  --mini-tick-fill: #e5e7eb;
+  --mini-xlabel-fill: #e5e7eb;
+
+  --mini-cap-stroke: #f59e0b;
+  --mini-sep-stroke: rgba(226,232,240,0.55);
+  --mini-bar-fill: #ef4444;
+
+  /* Bilan (Recharts) */
+  --bilan-zone-decouverte: rgba(59,35,21,0.35);
+  --bilan-zone-apprentissage: rgba(16,42,61,0.35);
+  --bilan-zone-acquisition: rgba(18,50,33,0.35);
+
+  --bilan-midline-stroke: rgba(10, 39, 78, 0.7);
+  --bilan-grid-stroke: rgba(148,163,184,0.22);
+  --bilan-axis-text: #e5e7eb;
+  --bilan-axis-line: rgba(148,163,184,0.35);
+
+  --bilan-tooltip-bg: var(--night-deep);
+  --bilan-tooltip-border: rgba(148,163,184,0.35);
+  --bilan-tooltip-text: #e5e7eb;
+  --bilan-cursor-fill: rgba(148,163,184,0.12);
+
+  /* Aperçu exigences (srcDoc) */
+  --eval-preview-outer-bg: #0b1220;
+  --eval-preview-page-bg: #0f1b2d;
+  --eval-preview-text: #f8fafc;
+  --eval-preview-muted: rgba(248,250,252,.72);
+  --eval-preview-border: rgba(148,163,184,.50);
+  --eval-preview-thead-bg: #162238;
+  --eval-preview-thead-text: #e2e8f0;
+}
+
+
+/* =========================================================
+   Boutons (centralisation des couleurs et états)
+   - Objectif : remplacer les gros className Tailwind (bg/text/border/hover)
+   - Tous les tokens ci-dessous sont modifiables
+   ========================================================= */
+
+:root{
+  /* Hover générique (clair) */
+  --ui-hover: rgba(254, 243, 199, 0.70); /* ~ amber-100/70 */
+
+  /* Topbar */
+  --btn-topbar-bg: #ffffff;
+  --btn-topbar-text: #111827;
+  --btn-topbar-border: #e5e7eb;
+
+  --btn-topbar-hover-bg: var(--ui-hover);
+  --btn-topbar-open-bg: var(--ui-hover);
+
+  --btn-topbar-active-bg: #000000;
+  --btn-topbar-active-text: #ffffff;
+
+  /* Primary (gros boutons d’action) */
+  --btn-primary-bg: #111827;
+  --btn-primary-text: #ffffff;
+  --btn-primary-border: rgba(17, 24, 39, 0.15);
+  --btn-primary-hover-bg: var(--ui-hover);
+  --btn-primary-hover-text: var(--btn-primary-text);
+
+  /* Outline */
+  --btn-outline-bg: #ffffff;
+  --btn-outline-text: #111827;
+  --btn-outline-border: #e5e7eb;
+  --btn-outline-hover-bg: var(--ui-hover);
+
+  /* Danger */
+  --btn-danger-solid-bg: #dc2626;        /* red-600 */
+  --btn-danger-solid-bg-dark: rgba(239, 68, 68, 0.80); /* red-500/80 */
+  --btn-danger-solid-text: #ffffff;
+  --btn-danger-solid-hover-bg: var(--ui-hover);
+  --btn-danger-solid-hover-bg-dark: #ef4444; /* red-500 */
+
+  --btn-danger-text: #dc2626;
+  --btn-danger-text-dark: rgba(252, 165, 165, 0.95);  /* red-300-ish */
+  --btn-danger-hover-bg: var(--ui-hover);
+  --btn-danger-hover-bg-dark: rgba(69, 10, 10, 0.30); /* red-950/30 */
+  --btn-danger-hover-text: #b91c1c;
+  --btn-danger-hover-text-dark: rgba(254, 202, 202, 0.95);
+
+  /* Pills (AB / N.NOT) */
+  --pill-bg: #ffffff;
+  --pill-text: #111827;
+  --pill-border: #d1d5db;
+  --pill-hover-bg: var(--ui-hover);
+
+  --pill-bg-dark: var(--night-surface);
+  --pill-text-dark: #f9fafb;
+  --pill-border-dark: rgba(75, 85, 99, 1); /* neutral-600 */
+  --pill-hover-bg-dark: var(--night-hover);
+
+  --pill-active-text: #ffffff;
+
+  --pill-absent-bg: #dc2626;    /* red-600 */
+  --pill-absent-bg-hover: #b91c1c; /* red-700 */
+
+  --pill-nnot-bg: #7c3aed;      /* violet-600 */
+  --pill-nnot-bg-hover: #6d28d9; /* violet-700 */
+
+  /* Mini boutons ronds (tableau S1/S2) */
+  --mini-danger-bg: #fef2f2;                 /* red-50 */
+  --mini-danger-bg-dark: rgba(127, 29, 29, 0.40); /* red-950/40 */
+  --mini-danger-text: #dc2626;               /* red-600 */
+  --mini-danger-text-dark: rgba(254, 202, 202, 0.95);
+  --mini-danger-border: #fecaca;             /* red-200 */
+  --mini-danger-border-dark: rgba(127, 29, 29, 0.50);
+  --mini-danger-hover-bg: var(--ui-hover);
+  --mini-danger-hover-bg-dark: rgba(127, 29, 29, 0.30); /* red-900/30 */
+
+  --mini-add-amber-border: #fbbf24; /* amber-400 */
+  --mini-add-amber-bg: #fffbeb;     /* amber-50 */
+  --mini-add-amber-bg-dark: rgba(69, 26, 3, 0.35); /* amber-950/35 */
+  --mini-add-amber-hover-bg: #fef3c7; /* amber-100 */
+
+  --mini-add-lime-border: #84cc16; /* lime-500 */
+  --mini-add-lime-bg: #f7fee7;     /* lime-50 */
+  --mini-add-lime-bg-dark: rgba(26, 46, 5, 0.35); /* lime-950/35 */
+  --mini-add-lime-hover-bg: #ecfccb; /* lime-100 */
+
+  /* Boutons icônes (aide / thème) */
+  --icon-btn-bg-dark: var(--night-surface);
+  --icon-btn-hover-bg: var(--ui-hover);
+  --icon-btn-hover-bg-dark: rgba(23, 23, 23, 1); /* neutral-900 */
+  --icon-btn-border: #e5e7eb;
+}
+
+.dark .night-root{
+  /* Topbar */
+  --btn-topbar-bg: var(--night-topbar);
+  --btn-topbar-text: #f9fafb;
+  --btn-topbar-border: rgba(56, 189, 248, 0.35);
+  --btn-topbar-hover-bg: var(--night-hover);
+  --btn-topbar-open-bg: var(--night-hover);
+
+  /* Primary */
+  --btn-primary-bg: rgba(14, 165, 233, 0.25); /* sky-500/25 */
+  --btn-primary-text: #f0f9ff;                /* sky-50 */
+  --btn-primary-border: rgba(56, 189, 248, 0.40);
+  --btn-primary-hover-bg: rgba(14, 165, 233, 0.35); /* sky-500/35 */
+  --btn-primary-hover-text: var(--btn-primary-text);
+
+  /* Outline */
+  --btn-outline-bg: var(--night-panel-alt);
+  --btn-outline-text: rgba(229, 231, 235, 1); /* neutral-200/300 */
+  --btn-outline-border: rgba(56, 189, 248, 0.35);
+  --btn-outline-hover-bg: var(--night-hover);
+
+  /* Danger */
+  --btn-danger-text: rgba(252, 165, 165, 0.95);
+  --btn-danger-hover-bg: rgba(69, 10, 10, 0.30);
+}
+
+/* ---------- tailles (réutilisables) ---------- */
+.btn-sm{
+  height: 32px !important;       /* ~ h-8 */
+  padding: 0 12px !important;
+  font-size: 12px !important;    /* ~ text-xs */
+}
+.btn-xs{
+  height: 28px !important;       /* ~ h-7 */
+  padding: 0 8px !important;
+  font-size: 12px !important;
+}
+
+/* ---------- Topbar ---------- */
+.topbar-btn{
+  border: 1px solid var(--btn-topbar-border) !important;
+  background: var(--btn-topbar-bg) !important;
+  color: var(--btn-topbar-text) !important;
+}
+.topbar-btn:hover{
+  background: var(--btn-topbar-hover-bg) !important;
+}
+.topbar-btn.is-open{
+  background: var(--btn-topbar-open-bg) !important;
+}
+.topbar-btn.is-active{
+  background: var(--btn-topbar-active-bg) !important;
+  color: var(--btn-topbar-active-text) !important;
+}
+
+/* ---------- Primary ---------- */
+.btn-primary{
+  height: 36px !important;      /* ~ h-9 */
+  padding: 0 12px !important;   /* ~ px-3 */
+  font-size: 12px !important;   /* ~ text-xs */
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--btn-primary-border) !important;
+  background: var(--btn-primary-bg) !important;
+  color: var(--btn-primary-text) !important;
+}
+.btn-primary:hover{
+  background: var(--btn-primary-hover-bg) !important;
+  color: var(--btn-primary-hover-text) !important;
+}
+
+/* ---------- Outline ---------- */
+.btn-outline{
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  border: 1px solid var(--btn-outline-border) !important;
+  background: var(--btn-outline-bg) !important;
+  color: var(--btn-outline-text) !important;
+}
+.btn-outline:hover{
+  background: var(--btn-outline-hover-bg) !important;
+}
+
+/* ---------- Danger ---------- */
+.btn-danger-solid{
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  background: var(--btn-danger-solid-bg) !important;
+  color: var(--btn-danger-solid-text) !important;
+}
+.dark .btn-danger-solid{
+  background: var(--btn-danger-solid-bg-dark) !important;
+}
+.btn-danger-solid:hover{
+  background: var(--btn-danger-solid-hover-bg) !important;
+}
+.dark .btn-danger-solid:hover{
+  background: var(--btn-danger-solid-hover-bg-dark) !important;
+}
+
+/* Petit carré icône (corbeille / suppression) */
+.btn-danger-icon{
+  width: 36px !important;
+  height: 36px !important;
+  padding: 0 !important;
+  border-radius: 10px !important;
+  background: var(--btn-danger-solid-bg) !important;
+  color: var(--btn-danger-solid-text) !important;
+}
+.btn-danger-icon:hover{
+  background: var(--btn-danger-solid-hover-bg) !important;
+}
+
+/* Ghost danger (texte rouge + hover) */
+.btn-ghost-danger{
+  color: var(--btn-danger-text) !important;
+}
+.dark .btn-ghost-danger{
+  color: var(--btn-danger-text-dark) !important;
+}
+.btn-ghost-danger:hover{
+  background: var(--btn-danger-hover-bg) !important;
+  color: var(--btn-danger-hover-text) !important;
+}
+.dark .btn-ghost-danger:hover{
+  background: var(--btn-danger-hover-bg-dark) !important;
+  color: var(--btn-danger-hover-text-dark) !important;
+}
+
+/* ---------- Pills (AB / N.NOT) ---------- */
+.pill-toggle{
+  height: 32px !important;
+  padding: 0 12px !important;
+  border-radius: 9999px !important;
+  border: 1px solid var(--pill-border) !important;
+  background: var(--pill-bg) !important;
+  color: var(--pill-text) !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+}
+.pill-toggle:hover{
+  background: var(--pill-hover-bg) !important;
+}
+.dark .pill-toggle{
+  border-color: var(--pill-border-dark) !important;
+  background: var(--pill-bg-dark) !important;
+  color: var(--pill-text-dark) !important;
+}
+.dark .pill-toggle:hover{
+  background: var(--pill-hover-bg-dark) !important;
+}
+
+.pill-toggle.is-active{
+  color: var(--pill-active-text) !important;
+}
+.pill-toggle.pill-toggle--absent.is-active{
+  background: var(--pill-absent-bg) !important;
+  border-color: var(--pill-absent-bg) !important;
+}
+.pill-toggle.pill-toggle--absent.is-active:hover{
+  background: var(--pill-absent-bg-hover) !important;
+}
+.pill-toggle.pill-toggle--nnot.is-active{
+  background: var(--pill-nnot-bg) !important;
+  border-color: var(--pill-nnot-bg) !important;
+}
+.pill-toggle.pill-toggle--nnot.is-active:hover{
+  background: var(--pill-nnot-bg-hover) !important;
+}
+
+/* ---------- Mini boutons ronds (S1/S2) ---------- */
+.mini-circle-btn{
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  line-height: 1;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.mini-circle-btn--danger{
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  background: var(--mini-danger-bg);
+  color: var(--mini-danger-text);
+  border-color: var(--mini-danger-border);
+}
+.dark .mini-circle-btn--danger{
+  background: var(--mini-danger-bg-dark);
+  color: var(--mini-danger-text-dark);
+  border-color: var(--mini-danger-border-dark);
+}
+.mini-circle-btn--danger:hover{
+  background: var(--mini-danger-hover-bg);
+}
+.dark .mini-circle-btn--danger:hover{
+  background: var(--mini-danger-hover-bg-dark);
+}
+
+.mini-circle-btn--add{
+  width: 20px;
+  height: 20px;
+  border-style: dashed;
+  border-width: 1px;
+  background: transparent;
+}
+.mini-circle-btn--add.is-amber{
+  border-color: var(--mini-add-amber-border);
+  background: var(--mini-add-amber-bg);
+}
+.dark .mini-circle-btn--add.is-amber{
+  background: var(--mini-add-amber-bg-dark);
+}
+.mini-circle-btn--add.is-amber:hover{
+  background: var(--mini-add-amber-hover-bg);
+}
+
+.mini-circle-btn--add.is-lime{
+  border-color: var(--mini-add-lime-border);
+  background: var(--mini-add-lime-bg);
+}
+.dark .mini-circle-btn--add.is-lime{
+  background: var(--mini-add-lime-bg-dark);
+}
+.mini-circle-btn--add.is-lime:hover{
+  background: var(--mini-add-lime-hover-bg);
+}
+
+/* ---------- Boutons liste (sélection) ---------- */
+.list-select-btn{
+  width: 100%;
+  text-align: left;
+  font-size: 12px;
+  padding: 8px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--btn-outline-border);
+  background: var(--btn-outline-bg);
+  color: var(--btn-outline-text);
+}
+.list-select-btn:hover{
+  background: var(--btn-outline-hover-bg);
+}
+.list-select-btn.is-selected{
+  background: var(--ui-hover);
+  border-color: rgba(251, 191, 36, 0.35); /* amber border léger */
+}
+.dark .list-select-btn{
+  border-color: rgba(56, 189, 248, 0.35);
+  background: var(--night-panel);
+  color: rgba(229, 231, 235, 1);
+}
+.dark .list-select-btn:hover{
+  background: var(--night-hover);
+}
+.dark .list-select-btn.is-selected{
+  background: rgba(14, 165, 233, 0.15); /* sky-500/15 */
+  border-color: rgba(56, 189, 248, 0.35);
+}
+
+/* ---------- Boutons icônes (aide / thème) ---------- */
+.icon-btn{
+  border: 1px solid var(--icon-btn-border);
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-btn:hover{
+  background: var(--icon-btn-hover-bg);
+}
+.dark .icon-btn{
+  background: var(--icon-btn-bg-dark);
+}
+.dark .icon-btn:hover{
+  background: var(--icon-btn-hover-bg-dark);
+}
+/* =========================
+   Extracted from AppCore.tsx
+   (inline styles moved to CSS)
+   ========================= */
+
+.app-scrollContain{
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+/* Vertical header text (tables) */
+.app-verticalHeader{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: normal;
+  word-break: break-word;
+  max-height: 96px;
+  overflow: hidden;
+}
+.app-verticalHeaderSimple{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* Engagement pills (colors via CSS variables set inline) */
+.eng-pill{
+  background-color: var(--pill-bg);
+  border-color: var(--pill-border);
+  color: var(--pill-text);
+}
+.eng-pill__dot{
+  border-color: var(--pill-text);
+}
+.eng-pill__dotInner{
+  background-color: var(--pill-text);
+}
+
+/* Score bubbles (colors via CSS variables set inline) */
+.score-bubble{
+  background-color: var(--score-bg);
+  border-color: var(--score-border);
+  color: var(--score-text);
+}
+
+/* 2-line clamp helper */
+.app-lineClamp2{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Chart legend swatch background helpers */
+.app-bgChartReference{ background-color: var(--chart-reference); }
+.app-bgChartStudent{ background-color: var(--chart-student); }
+.app-bgChartClass{ background-color: var(--chart-class); }
+
+/* Vertical header with wrapping + truncation */
+.app-verticalHeaderWrap{
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: normal;
+  word-break: break-word;
+  max-height: 96px;
+  overflow: hidden;
+}
+
+/* Lightweight layout helpers for LP blocks */
+.lp-pl10{ padding-left: 10px; }
+.lp-mt6{ margin-top: 6px; }
+.lp-mt12{ margin-top: 12px; }

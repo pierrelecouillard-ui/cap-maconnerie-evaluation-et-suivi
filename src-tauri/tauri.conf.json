@@ -1,0 +1,57 @@
+{
+  "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
+  "productName": "CAP-maconnerie-eval-suivi",
+  "version": "0.1.0",
+  "identifier": "fr.lecouillard.cap-maconnerie.evaluation",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "CRÉATION D'ÉVALUATIONS ET SUIVI DES COMPÉTENCES -- P.LECOUILLARD",
+        "width": 1200,
+        "height": 800,
+        "resizable": true,
+        "fullscreen": false,
+        "url": "index.html"
+      }
+    ],
+    "security": {
+      "csp": null,
+      "capabilities": ["default", "devoir-capabilities"]
+    }
+  },
+  "bundle": {
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/icon.ico",
+      "icons/icon.icns"
+    ],
+    "targets": ["nsis"],
+    "createUpdaterArtifacts": true,
+    "windows": {
+      "webviewInstallMode": { "type": "downloadBootstrapper" },
+      "nsis": {
+        "installMode": "currentUser",
+        "languages": ["French"],
+        "displayLanguageSelector": false,
+        "installerIcon": "icons/icon.ico",
+        "startMenuFolder": "EVALUATION CAP MACONNERIE"
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZDOEVEQ0IyQUQxQjUyMDMKUldRRFVodXRzdHlPYk9kNnVuRVZwL0V0SGhicGlDNlVxMU93VHIxZzhEbWZPZWlQYktmSGtnUWIK",
+      "endpoints": [
+        "https://github.com/pierrelecouillard-ui/cap-maconnerie-evaluation-et-suivi/releases/latest/download/latest.json"
+      ]
+    }
+  }
+}

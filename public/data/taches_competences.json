@@ -1,0 +1,188 @@
+{
+  "T1 — Prendre connaissance des informations liées à son intervention": [
+    "C 1.01 : Compléter et transmettre des documents",
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 3.03 : Intervenir à proximité des réseaux"
+  ],
+  "T2 — Communiquer en équipe, avec son responsable et les autres intervenants": [
+    "C 1.01 : Compléter et transmettre des documents",
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique"
+  ],
+  "T3 — Renseigner et transmettre des documents liés à son intervention": [
+    "C 1.01 : Compléter et transmettre des documents",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.03 : Déterminer des quantités de matériaux et composants"
+  ],
+  "T4 — Organiser son intervention en adoptant une attitude écoresponsable": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention"
+  ],
+  "T5 — Préparer et vérifier les matériels et les outillages pour son intervention": [
+    "C 1.01 : Compléter et transmettre des documents",
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.05 : Mettre en place et démonter un étaiement"
+  ],
+  "T6 — Préparer et approvisionner les matériaux et les fournitures": [
+    "C 1.01 : Compléter et transmettre des documents",
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention"
+  ],
+  "T7 — Déconstruire – Déposer et démonter des éléments": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.05 : Mettre en place et démonter un étaiement",
+    "C 3.13 : Intervenir sur le bâti existant"
+  ],
+  "T8 — Implanter les constructions, les éléments de structure": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.06 : Implanter et tracer des ouvrages",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T9 — Tracer les ouvrages": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.06 : Implanter et tracer des ouvrages"
+  ],
+  "T10 — Réaliser des ouvrages en maçonnerie de petits éléments": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.12 : Réaliser des maçonneries de petits éléments",
+    "C 3.13 : Intervenir sur le bâti existant"
+  ],
+  "T11 — Réaliser des ouvrages en matériaux bio et géo-sourcés": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.11 : Fabriquer et mettre en œuvre des bétons courants, bio et géo-sourcés",
+    "C 3.12 : Réaliser des maçonneries de petits éléments",
+    "C 3.13 : Intervenir sur le bâti existant",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.01 : Contrôler la nature et la conformité des supports",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T12 — Réaliser des ouvrages en béton": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.05 : Mettre en place et démonter un étaiement",
+    "C 3.09 : Réaliser et mettre en place des coffrages",
+    "C 3.10 : Mettre en place des armatures",
+    "C 3.11 : Fabriquer et mettre en œuvre des bétons courants, bio et géo-sourcés",
+    "C 3.13 : Intervenir sur le bâti existant"
+  ],
+  "T13 — Exécuter des finitions": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.03 : Intervenir à proximité des réseaux",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.13 : Intervenir sur le bâti existant",
+    "C 3.15 : Réaliser les finitions d’un ouvrage vertical",
+    "C 3.16 : Réaliser les finitions d’un ouvrage horizontal",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.01 : Contrôler la nature et la conformité des supports",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T14 — Poser des éléments préfabriqués": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.05 : Mettre en place et démonter un étaiement",
+    "C 3.10 : Mettre en place des armatures",
+    "C 3.14 : Poser des éléments préfabriqués",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.01 : Contrôler la nature et la conformité des supports",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T15 — Réaliser des terrassements complémentaires": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.03 : Intervenir à proximité des réseaux",
+    "C 3.06 : Implanter et tracer des ouvrages",
+    "C 3.07 : Réaliser des terrassements complémentaires",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T16 — Mettre en place des réseaux enterrés": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.03 : Intervenir à proximité des réseaux",
+    "C 3.06 : Implanter et tracer des ouvrages",
+    "C 3.08 : Réaliser des réseaux enterrés",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ],
+  "T17 — Intervenir sur le bâti existant": [
+    "C 1.02 : Échanger et rendre compte oralement",
+    "C 2.01 : Décoder un dossier technique",
+    "C 2.02 : Choisir les matériels et les outillages",
+    "C 2.03 : Déterminer des quantités de matériaux et composants",
+    "C 3.01 : Organiser son poste de travail",
+    "C 3.02 : Sécuriser son intervention",
+    "C 3.03 : Intervenir à proximité des réseaux",
+    "C 3.04 : Monter, démonter et utiliser un échafaudage",
+    "C 3.05 : Mettre en place et démonter un étaiement",
+    "C 3.06 : Implanter et tracer des ouvrages",
+    "C 3.09 : Réaliser et mettre en place des coffrages",
+    "C 3.11 : Fabriquer et mettre en œuvre des bétons courants, bio et géo-sourcés",
+    "C 3.12 : Réaliser des maçonneries de petits éléments",
+    "C 3.13 : Intervenir sur le bâti existant",
+    "C 3.15 : Réaliser les finitions d’un ouvrage vertical",
+    "C 3.16 : Réaliser les finitions d’un ouvrage horizontal",
+    "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages",
+    "C 4.01 : Contrôler la nature et la conformité des supports",
+    "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux"
+  ]
+}

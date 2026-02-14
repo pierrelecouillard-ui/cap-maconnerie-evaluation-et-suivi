@@ -1,0 +1,517 @@
+{
+  "C 1.01 : Compléter et transmettre des documents": {
+    "Prendre connaissance d’une consigne, d’un document technique :": {
+      "resultats": [
+        "La consigne, le document et leurs finalités sont compris et respectés."
+      ],
+      "exigences": []
+    },
+    "(Document en français et en langue étrangère simple et principalement en anglais)\nCompléter et transmettre un document technique :": {
+      "resultats": [
+        "Le document proposé est complété d'une manière claire et exhaustive",
+        "La procédure de transmission est respectée"
+      ],
+      "exigences": []
+    }
+  },
+  "C 1.02 : Échanger et rendre compte oralement": {
+    "Rendre compte oralement d’une situation professionnelle :": {
+      "resultats": [
+        "L’interlocuteur est écouté et compris",
+        "L’information transmise est conforme aux règles de l’entreprise",
+        "Le contenu de l’échange (champ lexical, structure…) est adapté à l’interlocuteur.",
+        "Le propos est clair, précis et concis",
+        "Une attitude éthique et responsable est adoptée face aux différents interlocuteurs"
+      ],
+      "exigences": []
+    },
+    "Reformuler des consignes transmises par la hiérarchie :": {
+      "resultats": [
+        "La reformulation atteste de la compréhension de la consigne"
+      ],
+      "exigences": []
+    }
+  },
+  "C 2.01 : Décoder un dossier technique": {
+    "Collecter et ordonner des informations techniques :": {
+      "resultats": [
+        "Les conditions d’intervention sur site (spécificités du chantier) sont identifiées",
+        "Les données techniques nécessaires à son intervention sont identifiées",
+        "La collecte et le classement des informations nécessaires à l’intervention est complète et exploitable",
+        "La terminologie en langue étrangère principalement l’anglais est compris et traduit"
+      ],
+      "exigences": []
+    },
+    "Effectuer un croquis manuellement ou avec un outil digital :": {
+      "resultats": [
+        "La représentation des détails (croquis, schémas, …) permet la réalisation",
+        "Les conventions de représentation et les normes de dessin technique sont respectées"
+      ],
+      "exigences": []
+    }
+  },
+  "C 2.02 : Choisir les matériels et les outillages": {
+    "Identifier et vérifier la compatibilité du matériel et de l’outillage nécessaires à la réalisation de son intervention :": {
+      "resultats": [
+        "Les matériels et l’outillage nécessaires sont conformes aux préconisations",
+        "Les règles et limites d’utilisation des matériels et de l’outillage sont respectées",
+        "Les accessoires et consommables nécessaires sont identifiés"
+      ],
+      "exigences": []
+    },
+    "Inventorier, sélectionner et lister les EPC et les EPI nécessaires et adaptés à l’intervention :": {
+      "resultats": [
+        "L’inventaire des EPC et des EPI est complet et adapté à l’intervention",
+        "Les éléments d’EPC et d’EPI sélectionnés sont adaptés à l’intervention",
+        "Les listes établies sont complètes et exploitables"
+      ],
+      "exigences": []
+    }
+  },
+  "C 2.03 : Déterminer des quantités de matériaux et composants": {
+    "Identifier les matériaux et composants nécessaires à son intervention :": {
+      "resultats": [
+        "La nature et les caractéristiques des matériaux et composants sont conformes aux indications du dossier d’exécution"
+      ],
+      "exigences": []
+    },
+    "Apprécier la qualité des matériaux :": {
+      "resultats": [
+        "La qualité correspond aux besoins de l’exécution",
+        "Déterminer les quantités de matériaux et composants nécessaires à son intervention :",
+        "Les quantités nécessaires à l’exécution sont estimées",
+        "Les quantités consommées sont communiquées à sa hiérarchie",
+        "L’état des stocks de matériaux est communiqué à sa hiérarchie",
+        "Les unités sont adaptées aux quantités estimées"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.01 : Organiser son poste de travail": {
+    "Organiser son poste de travail :": {
+      "resultats": [
+        "Les spécificités du chantier sont identifiées",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué",
+        "La co-activité est prise en compte",
+        "Les dispositifs de sécurité sont mis en place et maintenu dans toutes les phases d’exécution",
+        "Le poste du travail est maintenu en état de propreté et de fonctionnalité",
+        "Les anomalies techniques sont repérées et signalées"
+      ],
+      "exigences": []
+    },
+    "Adapter son poste de travail à l’évolution du chantier :": {
+      "resultats": [
+        "L’organisation du poste de travail est adaptée à l’avancement des travaux"
+      ],
+      "exigences": []
+    },
+    "Approvisionner son poste de travail :": {
+      "resultats": [
+        "Les matériaux, matériels, outillages sont à proximité de la réalisation",
+        "Les matériels et outillages approvisionnés permettent la réalisation rationnelle de l’intervention",
+        "L’état des EPI, matériels et outillages est vérifié, leur fonctionnement est testé et tout dysfonctionnement est signalé",
+        "Les matériaux et éléments approvisionnés correspondent en quantité et qualité à l’intervention",
+        "Le positionnement des matériaux permet l’avancement chronologique des travaux Les gestes et posture nécessaires à la manipulation sont appropriés à la tâche",
+        "Les gestes conventionnels de guidage sont connus et appliqués",
+        "Les gestes de commandement pour les appareils de levage sont connus et appliqués"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.02 : Sécuriser son intervention": {
+    "Identifier les dangers propres à son intervention :": {
+      "resultats": [
+        "Les dangers sont identifiés de manière exhaustive",
+        "Appliquer les mesures de prévention prévues ou nécessaires :",
+        "Une démarche de prévention dans son environnement de travail est mise en œuvre",
+        "L’installation du poste de travail garantit la sécurité et la protection de la santé",
+        "Les EPC, particulièrement la signalisation permanente et provisoire, et la protection du chantier sont respectés",
+        "Les consignes d’utilisation et de dépose de la signalisation sont respectées",
+        "Les EPI utilisés sont adaptées à la situation",
+        "Les consignes de sécurité collective et individuelle sont respectées"
+      ],
+      "exigences": []
+    },
+    "Alerter en cas de situation dangereuse :": {
+      "resultats": [
+        "Une situation dangereuse persistante est signalée à sa hiérarchie",
+        "Le droit de retrait est appliqué en cas de danger grave et imminent"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.03 : Intervenir à proximité des réseaux": {
+    "Alerter en cas de situation dangereuse :": {
+      "resultats": [],
+      "exigences": []
+    }
+  },
+  "C 3.05 : Mettre en place et démonter un étaiement": {
+    "Monter et démonter un échafaudage fixe (échafaudage de pied ou sur tréteaux) :": {
+      "resultats": [
+        "Le montage et le démontage sont effectués en conformité avec la notice de montage du matériel et la règlementation",
+        "Tout élément défectueux est signalé immédiatement",
+        "Le droit de retrait est appliqué en cas de danger grave et imminent",
+        "Les affichages, les balisages et les signalisations sont conformément installés",
+        "Les biens environnants sont protégés et sauvegardés"
+      ],
+      "exigences": []
+    },
+    "Utiliser un échafaudage de pied fixe (échafaudage de pied ou sur tréteaux) :": {
+      "resultats": [
+        "Les règles de déplacement et de stabilisation de l’échafaudage sont respectées",
+        "Les règles d’accès et de circulation sur l’échafaudage sont respectées",
+        "La charge autorisée sur l’échafaudage est respectée",
+        "La répartition de la charge est conforme aux préconisations du fabricant",
+        "L’échafaudage est maintenu en sécurité",
+        "Les biens environnants sont protégés et sauvegardés",
+        "Le droit de retrait est appliqué en cas de danger grave et imminent"
+      ],
+      "exigences": []
+    },
+    "Démonter, nettoyer, assurer la maintenance et conditionner le matériel pour son repliement": {
+      "resultats": [
+        "Le matériel est maintenu en état de fonctionnement, les éléments défectueux sont signalés et écartés.",
+        "Le stockage est rationnel et effectué dans la zone dédiée."
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.06 : Implanter et tracer des ouvrages": {
+    "Réaliser une implantation planimétrique et altimétrique d’un élément d’ouvrage": {
+      "resultats": [
+        "Les points ou alignements de référence sont identifiés",
+        "Le plan d’implantation est respecté",
+        "Les chaises et repères d’implantation sont stables et correctement positionnés"
+      ],
+      "exigences": []
+    },
+    "Tracer des ouvrages sur différents supports :": {
+      "resultats": [
+        "Les tracés ou les épures respectent les plans de définition et permettent la réalisation de l’ouvrage"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.07 : Réaliser des terrassements complémentaires": {
+    "Terrasser et régler manuellement le fond de fouille et les formes :": {
+      "resultats": [
+        "La signalisation et le balisage sont mis en place et maintenus dans toutes les phases d’exécution.",
+        "La cote hors gel est respectée",
+        "Les déblais et remblais sont gérés rationnellement",
+        "La terre végétale est stockée séparément",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué",
+        "Les points mous sont purgés",
+        "Le fond de fouille est régalé",
+        "Les formes en remblais sont correctement compactées"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.08 : Réaliser des réseaux enterrés": {
+    "Réaliser le lit de pose :": {
+      "resultats": [
+        "Le lit de pose respecte la pente prescrite.",
+        "Il est homogène et composé de matériaux conformes aux prescriptions"
+      ],
+      "exigences": []
+    },
+    "Poser, assembler, coller, sceller les canalisations, les regards, les siphons et les accessoires": {
+      "resultats": [
+        "Les pentes sont respectées, l’écoulement est continu",
+        "La cote fil d’eau est respectée",
+        "Le réseau est étanche",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Exécuter le remblaiement sur canalisation": {
+      "resultats": [
+        "Le matériau de remblai est purgé de gros éléments jusqu'à 15 cm au-dessus de la génératrice supérieure",
+        "Le grillage avertisseur, de couleur réglementaire selon la nature du réseau, est mis en place",
+        "Le remblaiement est effectué par couches de 20 cm, soigneusement compactées"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.09 : Réaliser et mettre en place des coffrages": {
+    "Fabriquer, assembler, mettre en place un coffrage traditionnel réutilisable et décoffrer :": {
+      "resultats": [
+        "Le coffrage permet de respecter :",
+        "les formes et dimensions de l’ouvrage",
+        "la qualité de parement prescrit",
+        "la poussée du béton frais",
+        "l’étanchéité",
+        "un décoffrage aisé",
+        "la possibilité de réemploi",
+        "les dispositifs de sécurité sont mis en place et maintenu dans toutes les phases d’exécution.",
+        "Le coffrage est serré et stabilisé",
+        "Le réglage du coffrage permet de respecter les tolérances de réalisation (verticalité et planéité)",
+        "Les éléments sont nettoyés et stockés en sécurité.",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Mettre en place des coffrages outils manu-portables, coffrages perdus :": {
+      "resultats": [
+        "Le réglage et la mise en place du coffrage permettent de respecter les exigences de planéité verticalité, aspect",
+        "Les inserts, réservations et négatifs sont correctement positionnés",
+        "Les dispositifs de sécurité sont mis en place et maintenus dans toutes les phases d’exécution",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué",
+        "Les éléments sont nettoyés et stockés en sécurité"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.10 : Mettre en place des armatures": {
+    "Mettre en place des armatures :": {
+      "resultats": [
+        "Les diamètres, les quantités, la position et le sens de pose des aciers et des cages sont respectés.",
+        "Les dispositions constructives sont respectées (enrobage, liaison, recouvrement, ancrage, attentes)",
+        "Les châssis et cages d’armatures sont rigides",
+        "Les armatures en attente sont protégées afin d’éviter les blessures térébrantes",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Façonner des armatures complémentaires :": {
+      "resultats": [
+        "Les armatures façonnées sont conformes au plan et à la nomenclature"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.11 : Fabriquer et mettre en œuvre des bétons courants, bio et géo-sourcés": {
+    "Fabriquer du béton": {
+      "resultats": [
+        "La composition du béton est établie à partir d’une méthode simple et correspond aux attentes du cahier des charges",
+        "La quantité de béton à gâcher est suffisante, correspond au besoin et réalisée en sécurité",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué",
+        "La consistance du béton est conforme aux prescriptions",
+        "Le choix de la méthode de malaxage est adapté à la quantité à réaliser"
+      ],
+      "exigences": []
+    },
+    "Mettre en œuvre du béton :": {
+      "resultats": [
+        "Le choix du matériel de manutention et de transport est adapté à l’ouvrage",
+        "Le mode opératoire de mise en œuvre du béton est respecté",
+        "Les moyens de serrage sont adaptés (vibration, damage, compactage, …)",
+        "La tenue des coffrages est contrôlée pendant et après bétonnage",
+        "Le délai de cure du béton est respecté"
+      ],
+      "exigences": []
+    },
+    "Traiter les surfaces et assurer les finitions manuelles :": {
+      "resultats": [
+        "L’aspect de surfaçage est conforme aux prescriptions",
+        "Le mode opératoire est respecté",
+        "Le délai de cure du béton est respecté"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.12 : Réaliser des maçonneries de petits éléments": {
+    "Confectionner les mortiers de hourdage ou colles en adéquation avec les matériaux à assembler :": {
+      "resultats": [
+        "Le mortier ou la colle réalisés correspond à l’usage et à l’aspect demandé (type de liant, plasticité, dosage des constituants y compris adjuvants)",
+        "La quantité de mortier ou colle à gâcher est suffisante, correspond au besoin et réalisée en sécurité",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Mettre en place les repères de hauteur et d’alignement (piges, balises, cordeaux …) :": {
+      "resultats": [
+        "Le positionnement des repères permet le respect du calepinage"
+      ],
+      "exigences": []
+    },
+    "Réaliser un appareillage courant pour des maçonneries apparentes :": {
+      "resultats": [
+        "Les appareillages et harpages réalisés sont conformes aux normes en vigueur et aux règles de l’art"
+      ],
+      "exigences": []
+    },
+    "Réaliser des ouvrages en maçonnerie :": {
+      "resultats": [
+        "La mise en œuvre respecte les normes et règles en vigueur :",
+        "La planéité, la verticalité et l’horizontalité propres à chaque matériau respectent les exigences",
+        "L’épaisseur des joints est conforme aux règles des textes normatifs",
+        "Les règles de liaisonnement sont respectées",
+        "Les temps d’exécution sont respectés"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.13 : Intervenir sur le bâti existant": {
+    "Identifier les éléments porteurs, l’environnement (ouvrages mitoyens) :": {
+      "resultats": [
+        "Les éléments porteurs sont identifiés et repérés",
+        "Les liaisons avec les ouvrages mitoyens sont identifiées.",
+        "Les désordres éventuels sont repérés et l’information est transmise à la hiérarchie"
+      ],
+      "exigences": []
+    },
+    "Créer ou modifier une ouverture dans un mur porteur :": {
+      "resultats": [
+        "La zone de travail, l’environnement sont sécurisés et les dispositifs de sécurité sont maintenus dans toutes les phases d’exécution.",
+        "L’étaiement est conforme au mode opératoire",
+        "Les éléments conservés sont protégés.",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué",
+        "Les dimensions correspondent aux attendus",
+        "Les consignes sont respectées",
+        "Les finitions sont réalisées et conformes aux prescriptions"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.14 : Poser des éléments préfabriqués": {
+    "Identifier le composant préfabriqué à poser :": {
+      "resultats": [
+        "Le composant est correctement identifié"
+      ],
+      "exigences": []
+    },
+    "Préparer la pose des composants :": {
+      "resultats": [
+        "Les équipements et accessoires mis à disposition sont contrôlés",
+        "L’élingage est conforme aux consignes",
+        "Les gestes de commandement des appareils de levage sont correctement utilisés",
+        "L’étaiement, les dispositifs de stabilisation et de blocage respectent les consignes",
+        "Les dispositifs de sécurité sont mis en place et maintenus dans toutes les phases d’exécution",
+        "L’ouvrage est conforme aux prescriptions de positionnement (altimétrie, alignement, horizontalité, verticalité…)"
+      ],
+      "exigences": []
+    },
+    "Réaliser les liaisons :": {
+      "resultats": [
+        "Les clavetages sont réalisés conformément au plan d’exécution (dosage liants, positionnement des armatures)",
+        "La continuité de l’aspect des parements au niveau des zones de clavetage est assurée (qualité du coffrage)",
+        "Les joints sont traités selon leur nature"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.15 : Réaliser les finitions d’un ouvrage vertical": {
+    "Réaliser des enduits verticaux :": {
+      "resultats": [
+        "La nature du support est identifiée",
+        "Les matériaux mis en œuvre sont adaptés au support",
+        "Les ouvrages environnants sont protégés",
+        "Les mortiers utilisés et leurs mises en œuvre sont conformes aux règles et normes en vigueur, aux avis techniques et ou aux prescriptions du fabricant",
+        "L’aspect est conforme aux prescriptions",
+        "Les exigences de planéité, et d’aspect sont respectées (surfaces courantes, arêtes, joints de dilatation)",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Réaliser des jointoiements ou rejointoiements :": {
+      "resultats": [
+        "La nature du support est identifiée",
+        "Les ouvrages environnants sont protégés",
+        "Les mortiers utilisés sont compatibles avec les supports et leur mise en œuvre sont conformes aux règles et normes en vigueur, aux avis techniques et /ou aux prescriptions du fabricant",
+        "L’aspect est conforme aux prescriptions"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.16 : Réaliser les finitions d’un ouvrage horizontal": {
+    "Réaliser des ouvrages de finition en béton": {
+      "resultats": [
+        "La composition et la consistance des bétons et mortiers sont adaptées à la destination de l’ouvrage",
+        "Les caractéristiques dimensionnelles et fonctionnelles des ouvrages sont respectées",
+        "Le positionnement altimétrique est conforme au plan",
+        "Les états de surface et les arêtes sont traités conformément aux prescriptions",
+        "La démarche éco-responsable est respectée et le principe 3RVE est appliqué"
+      ],
+      "exigences": []
+    },
+    "Réaliser des chapes :": {
+      "resultats": [
+        "La nature du support est identifiée",
+        "Les matériaux mis en œuvre sont adaptés au support",
+        "Les ouvrages environnants sont protégés",
+        "Les mortiers utilisés et leur mise en œuvre sont conformes aux règles et normes en vigueur, aux avis techniques et /ou aux prescriptions du fabricant",
+        "L’aspect est conforme aux prescriptions",
+        "Les exigences de planéité et d’aspect sont respectées"
+      ],
+      "exigences": []
+    }
+  },
+  "C 3.17 : Préparer, utiliser et entretenir les matériels et outillages": {
+    "Contrôler, avant utilisation, l’état :": {
+      "resultats": [
+        "Tout manquement ou anomalie est signalé à la hiérarchie"
+      ],
+      "exigences": []
+    },
+    "Mettre en place le matériel ou l’outillage en fonction de la tâche à réaliser": {
+      "resultats": [
+        "Le montage ou l’installation respecte scrupuleusement les indications du fabricant",
+        "La configuration retenue permet une utilisation aisée et en toute sécurité"
+      ],
+      "exigences": []
+    },
+    "Vérifier et assurer la maintenance courante du matériel et de l’outillage": {
+      "resultats": [
+        "Les éventuelles anomalies sont signalées à la hiérarchie"
+      ],
+      "exigences": []
+    },
+    "Replier le matériel ou l’outillage en vue d’une utilisation ultérieure": {
+      "resultats": [
+        "Le matériel ou l’outillage est mis en état (prêt à servir) et rangé aux endroits dédiés"
+      ],
+      "exigences": []
+    }
+  },
+  "C 4.01 : Contrôler la nature et la conformité des supports": {
+    "Identifier la nature du support": {
+      "resultats": [
+        "La nature du support est identifiée ou renseignée"
+      ],
+      "exigences": []
+    },
+    "Contrôler l’état des supports": {
+      "resultats": [
+        "Les contrôles de cohésion, planimétrie, propreté, aplombs, équerrage sont effectués conformément aux procédures techniques ou normatives",
+        "Les données relevées sont comparées avec les exigences imposées par les textes normatifs et réglementaires.",
+        "Les écarts à la conformité constatés sont signalés"
+      ],
+      "exigences": []
+    }
+  },
+  "C 4.02 : Contrôler le travail réalisé en cours d’exécution et en fin de travaux": {
+    "Préparer les moyens de contrôle :": {
+      "resultats": [
+        "Les moyens sont adaptés aux contrôles à réaliser"
+      ],
+      "exigences": []
+    },
+    "Réaliser les contrôles en cours de réalisation et en fin de travaux :": {
+      "resultats": [
+        "Les protocoles de contrôle sont respectés",
+        "Les techniques d’utilisation des matériels sont acquises",
+        "Les contrôles permettent les corrections éventuelles et la poursuite des travaux puis la réception"
+      ],
+      "exigences": []
+    },
+    "Mettre en œuvre une méthode d’autocontrôle de son travail :": {
+      "resultats": [
+        "Les points de contrôle sont identifiés et judicieux",
+        "Les contrôles permettent de vérifier la conformité du travail confié",
+        "La fréquence des contrôles est adaptée au travail réalisé",
+        "Les résultats des contrôles garantissent la conformité du travail confié",
+        "Les défauts sont repérés, corrigés ou communiqués à la hiérarchie"
+      ],
+      "exigences": []
+    },
+    "Appliquer une procédure d’autocontrôle établie :": {
+      "resultats": [
+        "La procédure établie pour les autocontrôles est respectée",
+        "Les fiches d’autocontrôle sont renseignées et transmises."
+      ],
+      "exigences": []
+    }
+  }
+}

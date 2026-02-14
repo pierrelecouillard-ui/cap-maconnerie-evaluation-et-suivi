@@ -1,0 +1,121 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": [
+    "main",
+    "print_*"
+  ],
+  "permissions": [
+    "core:default",
+    "core:window:allow-center",
+    "core:window:allow-set-always-on-top",
+    "core:window:allow-set-focus",
+    "core:window:allow-close",
+    "core:webview:allow-create-webview-window",
+    "core:window:allow-create",
+    "core:window:allow-set-decorations",
+    "core:window:allow-set-closable",
+    "core:window:allow-set-title",
+    "fs:default",
+    "updater:default",
+    "process:default",
+    {
+      "identifier": "fs:allow-exists",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-text-file",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-write-text-file",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-read-dir",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-mkdir",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-remove",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "fs:allow-rename",
+      "allow": [
+        {
+          "path": "$APPLOCALDATA/**"
+        }
+      ]
+    },
+    {
+      "identifier": "http:default",
+      "allow": [
+        {
+          "url": "https://fr.ftp.opendatasoft.com/*"
+        },
+        {
+          "url": "https://data.education.gouv.fr/*"
+        },
+        {
+          "url": "https://sti.eduscol.education.fr/*"
+        },
+        {
+          "url": "https://sti.eduscol.education.fr/sites/*"
+        },
+        {
+          "url": "https://www.legifrance.gouv.fr/*"
+        },
+        {
+          "url": "https://legifrance.gouv.fr/*"
+        },
+        {
+          "url": "https://referentiels-professionnels.eduscol.education.fr/*"
+        },
+        {
+          "url": "https://eduscol.education.fr/*"
+        },
+        {
+          "url": "https://sandbox-oauth.piste.gouv.fr/*"
+        },
+        {
+          "url": "https://oauth.piste.gouv.fr/*"
+        },
+        {
+          "url": "https://sandbox-api.piste.gouv.fr/*"
+        },
+        {
+          "url": "https://api.piste.gouv.fr/*"
+        }
+      ]
+    }
+  ]
+}
