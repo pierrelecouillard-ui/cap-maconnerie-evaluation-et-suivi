@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { invoke } from "@tauri-apps/api/core";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -200,21 +201,9 @@ async function tauriFetchText(url: string): Promise<string> {
         "http://localhost:8787";
       const proxyBase = String(proxyBaseRaw).replace(/\/$/, "");
 
-      const apiKeyRaw =
-        (import.meta as any).env?.VITE_LEGIFRANCE_API_KEY ||
-        (window as any).__LEGIFRANCE_API_KEY__ ||
-        "";
-      const apiKey = String(apiKeyRaw || "").trim();
-
-      const headers: Record<string, string> = {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      };
-      if (apiKey) headers["x-api-key"] = apiKey;
-
       const r = await fetch(`${proxyBase}/legifrance/import`, {
         method: "POST",
-        headers,
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({ url }),
       });
 
@@ -1087,6 +1076,55 @@ function normalizeCritResDB(input: any): CriteresResultsDB {
     }
   }
   return out;
+}
+
+
+function buildCritResDBFromPreview(preview: LegifranceImportPreview): CriteresResultsDB {
+  const out: CriteresResultsDB = {};
+
+  // 1) Initialise une entrée par compétence
+  for (const comp of preview.competences) {
+    if (!out[comp]) out[comp] = {};
+  }
+
+  // 2) "Être capable de" (ajouté comme items vides)
+  for (const comp of preview.competences) {
+    for (const item of preview.capableDe) {
+      if (!out[comp][item]) out[comp][item] = { resultats: [], exigences: [] };
+    }
+  }
+
+  // 3) Critères d'évaluation (rangés dans un item spécial, dans `exigences`)
+  const critItem = "Critères d'évaluation (import)";
+  for (const comp of preview.competences) {
+    if (!out[comp][critItem]) out[comp][critItem] = { resultats: [], exigences: [] };
+    out[comp][critItem].exigences = [...preview.criteresEval];
+  }
+
+  return normalizeCritResDB(out);
+}
+
+function buildBundleFromPreviewReplace(
+  preview: LegifranceImportPreview,
+  name: string
+): ReferentielCapBundle {
+  const tcMap: TCMap =
+    preview.tcMap && Object.keys(preview.tcMap).length
+      ? preview.tcMap
+      : (() => {
+          const tc: TCMap = {};
+          for (const t of preview.tasks) tc[t] = [];
+          return tc;
+        })();
+
+  return {
+    schema: "referentiel_cap_v1",
+    name: name || "Référentiel CAP",
+    tcMap,
+    critResDB: buildCritResDBFromPreview(preview),
+    poles: preview.poles,
+    polesMap: preview.polesMap,
+  };
 }
 
 function parseReferentielCapBundle(raw: any): ReferentielCapBundle | null {
@@ -3849,8 +3887,8 @@ const [refLegifranceRaw, setRefLegifranceRaw] = useState<string>("");
 const [refLegifranceLoading, setRefLegifranceLoading] = useState<boolean>(false);
 const [refLegifranceError, setRefLegifranceError] = useState<string>("");
 
-const runLegifranceUrlFetch = async () => {
-  const u = String(refLegifranceUrl || "").trim();
+const runLegifranceUrlFetch = async (overrideUrl?: string) => {
+  const u = String((overrideUrl ?? refLegifranceUrl) || "").trim();
   setRefLegifranceError("");
   setRefLegifranceRaw("");
   if (!u) {
@@ -3860,7 +3898,7 @@ const runLegifranceUrlFetch = async () => {
   setRefLegifranceLoading(true);
   try {
     const raw = await tauriFetchText(u);
-    setRefLegifranceRaw(raw);
+        setRefLegifranceRaw(raw);
     // Aperçu + stats + bouton "Importer ces données"
     const preview = buildLegifranceImportPreview(raw);
 
@@ -3879,23 +3917,36 @@ const runLegifranceUrlFetch = async () => {
     const ok = await confirm(msg, { title: "Import Légifrance", kind: "warning" } as any);
     if (!ok) return;
 
-    // Applique le minimum utile : pôles + répartition des tâches par pôle.
-    // (Les compétences restent gérées via l'éditeur / l'utilisateur pourra compléter si besoin.)
-    setRefPoles(preview.poles);
-    setRefPolesMap(preview.polesMap);
+    // ✅ Mode 1 : Remplacer complètement le référentiel existant
+    const newBundle = buildBundleFromPreviewReplace(preview, (refName && refName.trim()) ? refName.trim() : "Référentiel CAP (Import Légifrance)");
 
-    // Si on n'avait pas encore de tcMap, on initialise une tcMap basée sur les tâches détectées.
-    if (!refTcMap || Object.keys(refTcMap).length === 0) {
-      const tc: TCMap = {};
-      for (const t of preview.tasks) tc[t] = [];
-      setRefTcMap(tc);
-    }
+    // Sauvegarde (store)
+    await saveReferentielCapToStore(newBundle);
+
+    // Application immédiate à l'UI
+    setRefName(newBundle.name);
+    setRefPoles(newBundle.poles || []);
+    setRefPolesMap(newBundle.polesMap || {});
+    setRefTcMap(newBundle.tcMap || {});
+    setRefCritResDB(newBundle.critResDB || {});
 
   } catch (e: any) {
     setRefLegifranceError(`Import impossible : ${e?.message ? String(e.message) : String(e)}`.trim());
   } finally {
     setRefLegifranceLoading(false);
   }
+};
+
+
+const isLegifranceDocUrl = (url: string) => {
+  const u = String(url || "").toLowerCase();
+  return u.includes("legifrance.gouv.fr/");
+};
+
+const importLegifranceFromDoc = async (url: string) => {
+  // Pré-remplit le champ URL pour transparence utilisateur
+  setRefLegifranceUrl(url);
+  await runLegifranceUrlFetch(url);
 };
 
 const refExamGroups = React.useMemo(() => {
@@ -14781,6 +14832,17 @@ function SemesterMatrix({
                           >
                             Ouvrir
                           </Button>
+                          {isLegifranceDocUrl(r.url) && (
+                            <Button
+                              type="button"
+                              variant="secondary"
+                              className="ml-2 h-7 px-2 text-[11px]"
+                              onClick={() => importLegifranceFromDoc(r.url)}
+                              title="Importer ce document (remplace le référentiel actuel)"
+                            >
+                              Importer
+                            </Button>
+                          )}
                         </td>
                       </tr>
                       );
@@ -14897,7 +14959,7 @@ function SemesterMatrix({
       <div className="mt-3 rounded-xl border border-neutral-200 dark:border-sky-400/35 bg-white/60 dark:bg-[var(--night-surface)] p-3">
         <div className="mb-2 text-[13px] font-semibold text-neutral-900 dark:text-neutral-100">URL Légifrance</div>
         <div className="text-[11px] text-neutral-600 dark:text-neutral-300">
-          Colle une URL Légifrance (JORFTEXT/LEGITEXT/LEGIARTI...). En mode logiciel, la récupération passe par ton proxy backend (PISTE) si un identifiant est détecté.
+          Colle une URL Légifrance (JORFTEXT/LEGITEXT/LEGIARTI...). Tu peux aussi passer par la recherche ci-dessus puis cliquer “Importer”. La récupération passe par ton proxy backend (PISTE).
         </div>
 
         <div className="mt-2 flex flex-col sm:flex-row gap-2">
