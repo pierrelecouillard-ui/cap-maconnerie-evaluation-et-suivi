@@ -175,6 +175,12 @@ function scoreDiplomaTitle(title: string, query: string) {
 }
 
 async function tauriFetchText(url: string): Promise<string> {
+  // Normalisation minimale : certains copier-coller omettent le schéma (https://),
+  // et dans ce cas new URL() throw -> on retombe sur un GET direct (Cloudflare 403).
+  url = String(url || "").trim();
+  if (/^www\.legifrance\.gouv\.fr\b/i.test(url)) url = "https://" + url;
+  if (/^legifrance\.gouv\.fr\b/i.test(url)) url = "https://" + url;
+
   // plugin-http : Response compatible Fetch.
   // IMPORTANT: certains sites (ex: Legifrance) filtrent fortement selon User-Agent/Accept.
   //
@@ -184,17 +190,31 @@ async function tauriFetchText(url: string): Promise<string> {
   try {
     const u = new URL(url);
     const host = (u.hostname || "").toLowerCase();
-    const idMatch = String(url).match(/\b(JORFTEXT\d{12}|LEGITEXT\d{12}|LEGIARTI\d{12}|JORFARTI\d{12}|JORFCONT\d{12}|LEGISCTA\d{12})\b/);
-    if (host.includes("legifrance.gouv.fr") && idMatch) {
+    const idMatch = String(url).match(
+      /\b(JORFTEXT\d{12}|LEGITEXT\d{12}|LEGIARTI\d{12}|JORFARTI\d{12}|JORFCONT\d{12}|LEGISCTA\d{12}|KALITEXT\d{12}|KALIARTI\d{12})\b/
+    );
+    if (host.includes("legifrance.gouv.fr")) {
       const proxyBaseRaw =
         (import.meta as any).env?.VITE_LEGIFRANCE_PROXY_BASE ||
         (window as any).__LEGIFRANCE_PROXY_BASE__ ||
         "http://localhost:8787";
       const proxyBase = String(proxyBaseRaw).replace(/\/$/, "");
 
+      const apiKeyRaw =
+        (import.meta as any).env?.VITE_LEGIFRANCE_API_KEY ||
+        (window as any).__LEGIFRANCE_API_KEY__ ||
+        "";
+      const apiKey = String(apiKeyRaw || "").trim();
+
+      const headers: Record<string, string> = {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      };
+      if (apiKey) headers["x-api-key"] = apiKey;
+
       const r = await fetch(`${proxyBase}/legifrance/import`, {
         method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        headers,
         body: JSON.stringify({ url }),
       });
 
@@ -737,6 +757,237 @@ type ReferentielCapBundle = {
 };
 
 const __dedupe = (arr: string[]) => Array.from(new Set((arr || []).filter(Boolean)));
+
+
+type LegifranceImportPreview = {
+  poles: string[];
+  tasks: string[];
+  competences: string[];
+  capableDe: string[];
+  criteresEval: string[];
+  tcMap: TCMap;
+  polesMap: PolesMap;
+};
+
+function __toTextFromHtmlMaybe(input: string): string {
+  const s = String(input || "");
+  // Convertit grossièrement le HTML en texte en conservant des séparateurs de lignes.
+  return s
+    .replace(/<br\s*\/?\s*>/gi, "\n")
+    .replace(/<\/p>/gi, "\n")
+    .replace(/<\/li>/gi, "\n")
+    .replace(/<\/tr>/gi, "\n")
+    .replace(/<\/td>/gi, " ")
+    .replace(/<\/th>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;|&#160;/gi, " ")
+    .replace(/\u00A0/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function __splitLines(s: string): string[] {
+  return String(s || "")
+    .replace(/\r/g, "\n")
+    .split("\n")
+    .map((x) => x.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+}
+
+function __extractCcodes(s: string): string[] {
+  const out: string[] = [];
+  const re = /\bC\s*(\d)\s*\.\s*(\d+)\b/gi;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(String(s || "")))) out.push(`C${m[1]}.${m[2]}`);
+  return __dedupe(out);
+}
+
+function __extractTaskKey(s: string): string {
+  const m = String(s || "").match(/\b(T\d+)\b/i);
+  return m ? m[1].toUpperCase() : "";
+}
+
+function __looksLikePoleLabel(label: string): boolean {
+  const t = String(label || "").replace(/\s+/g, " ").trim();
+  if (!t) return false;
+  if (/^(pôle|pole|activité|activite)\b/i.test(t)) return false;
+  if (/^T\d+\b/i.test(t)) return false;
+  if (/^C\d+/i.test(t)) return false;
+  // Sur les arrêtés CAP, les activités/pôles sont quasi toujours en capitales.
+  return /^[A-ZÉÈÀÙÇ][A-ZÉÈÀÙÇ\s'’\-]{2,}$/u.test(t) && t.length <= 140;
+}
+
+function __normalizePoleLabel(label: string): string {
+  let t = String(label || "").replace(/\s+/g, " ").trim();
+  if (!t) return "";
+  // "Activité A1 COMMUNICATION" => "COMMUNICATION"
+  let m = t.match(/^Activit[ée]\s+A\d+\s+(.+)$/i);
+  if (m) return String(m[1] || "").replace(/\s+/g, " ").trim();
+  // "A1 COMMUNICATION" => "COMMUNICATION"
+  m = t.match(/^A\d+\s+(.+)$/i);
+  if (m) return String(m[1] || "").replace(/\s+/g, " ").trim();
+  return t;
+}
+
+function __extractPolesAndTaskKeysFromHtmlTables(rawHtml: string): { poles: string[]; polesMapKeys: Record<string, string[]> } {
+  const poles: string[] = [];
+  const polesMapKeys: Record<string, string[]> = {};
+
+  const normalizeCell = (s: string) =>
+    String(s || "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&nbsp;|&#160;/gi, " ")
+      .replace(/\u00A0/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+  const trRe = /<tr\b[^>]*>([\s\S]*?)<\/tr>/gi;
+  const tdRe = /<(td|th)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+
+  let lastPole = "";
+  let tr: RegExpExecArray | null;
+
+  while ((tr = trRe.exec(rawHtml))) {
+    const rowHtml = tr[1] || "";
+    const cells: string[] = [];
+    let td: RegExpExecArray | null;
+    while ((td = tdRe.exec(rowHtml))) cells.push(normalizeCell(td[2] || ""));
+    if (!cells.length) continue;
+
+    const c0 = __normalizePoleLabel(cells[0] || "");
+    if (c0 && __looksLikePoleLabel(c0)) {
+      lastPole = c0;
+      if (!poles.includes(lastPole)) poles.push(lastPole);
+      if (!polesMapKeys[lastPole]) polesMapKeys[lastPole] = [];
+    }
+
+    for (const c of cells) {
+      const k = __extractTaskKey(c);
+      if (!k) continue;
+      const pole = lastPole ? lastPole : "IMPORT — Pôle/Activité";
+      if (!poles.includes(pole)) poles.push(pole);
+      if (!polesMapKeys[pole]) polesMapKeys[pole] = [];
+      if (!polesMapKeys[pole].includes(k)) polesMapKeys[pole].push(k);
+      break;
+    }
+  }
+
+  return { poles, polesMapKeys };
+}
+
+function buildLegifranceImportPreview(rawHtmlOrText: string): LegifranceImportPreview {
+  const raw = String(rawHtmlOrText || "");
+  const text = __toTextFromHtmlMaybe(raw);
+  const lines = __splitLines(
+    raw
+      .replace(/<br\s*\/?\s*>/gi, "\n")
+      .replace(/<\/p>/gi, "\n")
+      .replace(/<\/li>/gi, "\n")
+      .replace(/<\/tr>/gi, "\n")
+      .replace(/<[^>]+>/g, "\n")
+      .replace(/&nbsp;|&#160;/gi, " ")
+      .replace(/\u00A0/g, " ")
+  );
+
+  const poles: string[] = [];
+  const tasks: string[] = [];
+  const competences: string[] = [];
+  const capableDe: string[] = [];
+  const criteresEval: string[] = [];
+
+  const tcMap: TCMap = {};
+  const polesMap: PolesMap = {};
+
+  // --- Compétences : extraction stable par codes
+  for (const c of __extractCcodes(text)) competences.push(c);
+
+  // --- Tâches : dédup par code Tn
+  const taskLabelByKey = new Map<string, string>();
+  const pushTask = (label: string) => {
+    const clean0 = String(label || "").replace(/\s+/g, " ").trim();
+    if (!clean0) return;
+    const key = __extractTaskKey(clean0) || clean0;
+    if (!taskLabelByKey.has(key)) taskLabelByKey.set(key, clean0);
+  };
+
+  // 1) lignes
+  for (const ln of lines) {
+    const line = String(ln || "").trim();
+    if (!line) continue;
+
+    // COMMUNICATION T1 : ...
+    const mActTask = line.match(/^(.+?)\s*(T\d+)\s*[:\-]\s*(.+)$/i);
+    if (mActTask) {
+      const pole = __normalizePoleLabel(mActTask[1]);
+      if (pole && __looksLikePoleLabel(pole) && !poles.includes(pole)) poles.push(pole);
+      pushTask(`${mActTask[2].toUpperCase()} : ${String(mActTask[3] || "").trim()}`);
+      continue;
+    }
+
+    // Activité A1 ...
+    const mAct = line.match(/^Activit[ée]\s+(A\d+)\s+(.+)$/i);
+    if (mAct) {
+      const pole = __normalizePoleLabel(`${mAct[1]} ${mAct[2]}`);
+      if (pole && __looksLikePoleLabel(pole) && !poles.includes(pole)) poles.push(pole);
+      continue;
+    }
+
+    // T1 : ...
+    const mTask = line.match(/^(T\d+)\s*[:\-]\s*(.+)$/i);
+    if (mTask) {
+      pushTask(`${mTask[1].toUpperCase()} : ${String(mTask[2] || "").trim()}`);
+      continue;
+    }
+  }
+
+  // 2) fallback tasks from text
+  if (taskLabelByKey.size < 3) {
+    const codes = Array.from(new Set((text.match(/\bT\d+\b/gi) || []).map((x) => x.toUpperCase())));
+    for (const code of codes) if (!taskLabelByKey.has(code)) taskLabelByKey.set(code, `${code} : (libellé à compléter)`);
+  }
+
+  // matérialise tasks
+  for (const v of taskLabelByKey.values()) tasks.push(v);
+
+  // --- Pôles : priorité aux tableaux HTML si dispo (cas CAP maçonnerie)
+  if (raw.includes("<table")) {
+    const table = __extractPolesAndTaskKeysFromHtmlTables(raw);
+    const tpoles = table.poles.map(__normalizePoleLabel).filter((x) => __looksLikePoleLabel(x));
+    if (tpoles.length >= 2) {
+      poles.length = 0;
+      poles.push(...__dedupe(tpoles));
+
+      // rebuild polesMap: associe codes Tn -> libellés
+      const labelByKey = new Map<string, string>();
+      for (const t of tasks) {
+        const k = __extractTaskKey(t);
+        if (k && !labelByKey.has(k)) labelByKey.set(k, t);
+      }
+
+      for (const p of poles) {
+        const keys = table.polesMapKeys[p] || [];
+        polesMap[p] = __dedupe(keys.map((k) => labelByKey.get(k) || k));
+      }
+    }
+  }
+
+  // fallback poles by "Activité A1.."
+  if (poles.length < 2) {
+    const reA = /Activit[ée]\s+A\d+\s+([A-ZÉÈÀÙÇ][A-ZÉÈÀÙÇ\s'’\-]{2,})/gu;
+    let ma: RegExpExecArray | null;
+    while ((ma = reA.exec(raw))) {
+      const pole = __normalizePoleLabel(ma[1]);
+      if (pole && __looksLikePoleLabel(pole) && !poles.includes(pole)) poles.push(pole);
+    }
+  }
+
+  // dernier fallback : un pôle unique
+  if (!poles.length) poles.push("IMPORT — Pôle/Activité");
+  for (const p of poles) if (!polesMap[p]) polesMap[p] = polesMap[p] || [];
+
+  return { poles, tasks, competences, capableDe, criteresEval, tcMap, polesMap };
+}
+
 
 function __compCode(label: string) {
   const m = String(label || "").match(/\bC\s*(\d)\s*\.\s*(\d+)\b/i);
@@ -3608,8 +3859,38 @@ const runLegifranceUrlFetch = async () => {
   }
   setRefLegifranceLoading(true);
   try {
-    const htmlOrText = await tauriFetchText(u); // passe par le proxy si URL Légifrance avec ID
-    setRefLegifranceRaw(String(htmlOrText || ""));
+    const raw = await tauriFetchText(u);
+    setRefLegifranceRaw(raw);
+    // Aperçu + stats + bouton "Importer ces données"
+    const preview = buildLegifranceImportPreview(raw);
+
+    const msg =
+      `Données détectées :
+` +
+      `• Activités / Pôles : ${preview.poles.length}
+` +
+      `• Tâches : ${preview.tasks.length}
+` +
+      `• Compétences : ${preview.competences.length}
+
+` +
+      `Souhaites-tu importer ces données dans le logiciel ?`;
+
+    const ok = await confirm(msg, { title: "Import Légifrance", kind: "warning" } as any);
+    if (!ok) return;
+
+    // Applique le minimum utile : pôles + répartition des tâches par pôle.
+    // (Les compétences restent gérées via l'éditeur / l'utilisateur pourra compléter si besoin.)
+    setRefPoles(preview.poles);
+    setRefPolesMap(preview.polesMap);
+
+    // Si on n'avait pas encore de tcMap, on initialise une tcMap basée sur les tâches détectées.
+    if (!refTcMap || Object.keys(refTcMap).length === 0) {
+      const tc: TCMap = {};
+      for (const t of preview.tasks) tc[t] = [];
+      setRefTcMap(tc);
+    }
+
   } catch (e: any) {
     setRefLegifranceError(`Import impossible : ${e?.message ? String(e.message) : String(e)}`.trim());
   } finally {
